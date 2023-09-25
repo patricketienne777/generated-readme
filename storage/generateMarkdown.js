@@ -1,40 +1,34 @@
-// If there is no license, return an empty string
-// Define a mapping of licenses to badge URLs and license links
-const licenseData = {
-    "Apache 2.0 License": {
-      badge: "[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)",
-      link: "(https://opensource.org/licenses/Apache-2.0)"
-    },
-    "BSD 2-Clause License": {
-      badge: "[![License](https://img.shields.io/badge/License-BSD_2--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)",
-      link: "(https://opensource.org/licenses/BSD-2-Clause)"
-    },
-    "The MIT License": {
-      badge: "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)",
-      link: "(https://opensource.org/licenses/MIT)"
-    },
-    "The Unilicense": {
-      badge: "[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)",
-      link: "(http://unlicense.org/)"
-    },
-    "": {
-      badge: "",
-      link: ""
+function renderLicenseBadge(license) {
+    switch (license) {
+      case "MIT":
+        return "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
+      case "Apache-2.0":
+        return "[![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)";
+      case "BSD-3-Clause":
+        return "[![License: BSD-3-Clause](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)";
+      default:
+        return "[![License: Unknown](https://img.shields.io/badge/License-Unknown-lightgrey.svg)](https://example.com)";
     }
-  };
-  
-  // Function to render the license badge
-  function renderLicenseBadge(license) {
-    return licenseData[license].badge;
   }
   
-  // Function to render the license link
   function renderLicenseLink(license) {
-    return licenseData[license].link;
+    switch (license) {
+      case "MIT":
+        return "https://opensource.org/licenses/MIT";
+      case "Apache-2.0":
+        return "https://opensource.org/licenses/Apache-2.0";
+      case "BSD-3-Clause":
+        return "https://opensource.org/licenses/BSD-3-Clause";
+      default:
+        return "https://example.com";
+    }
   }
   
   // Function to generate markdown for README
   export function generateMarkdown(data) {
+    const licenseBadge = renderLicenseBadge(data.license);
+    const licenseLink = renderLicenseLink(data.license);
+  
     return `# ${data.title}
   
   ## Table of Contents
@@ -56,7 +50,7 @@ const licenseData = {
   ${data.usage}
   
   ## License 
-  ${renderLicenseBadge(data.License)} ${data.License} ${renderLicenseLink(data.License)}
+  ${licenseBadge} [${data.license}](${licenseLink})
   
   ## Contribution Guidelines
   ${data.contributing}
@@ -65,14 +59,10 @@ const licenseData = {
   ${data.tests}
   
   ## Questions
-  - Github: ${data.Github}
+  - Github: ${data.username}
   - Email: ${data.email}
-  `;
+    `;
   }
   
-//   module.exports = generateMarkdown;
-// generateMarkdown.js
-// export function generateMarkdown(data) {
-//     // Your function code here
-//   }
+  export default { generateMarkdown };
   

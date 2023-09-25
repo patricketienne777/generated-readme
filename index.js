@@ -28,13 +28,13 @@ const questions = [
     {
         type: "input",
         name: "installation",
-        message: " What would you like to install?",
+        message: "Please input steps for installation.",
     },
 
     {
         type: "input",
         name: "usage",
-        message: "What should the user know about the repo?",
+        message: "What is the usage information?",
     },
 
     {
@@ -47,13 +47,13 @@ const questions = [
     {
         type: "input",
         name: "contributing",
-        message: "Would you like to contribute to this repo?",
+        message: "What are the contribution guidelines?",
     },
 
     {
         type: "input",
         name: "tests",
-        message: "What would you like to try?",
+        message: "Please input instructions for testing.",
     },
     {
         type: "input",
