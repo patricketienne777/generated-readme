@@ -1,0 +1,20 @@
+{
+  "name": "package.json",
+  "version": "1.0.0",
+  "description": "readme-generator",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/patricketienne777/generated-readme.git"
+  },
+  "author": "Patrick Etienne",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/patricketienne777/generated-readme/issues"
+  },
+  "homepage": "https://github.com/patricketienne777/generated-readme#readme"
+}
